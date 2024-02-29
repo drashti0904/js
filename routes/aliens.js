@@ -23,7 +23,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   const alien = new Alien({
     name: req.body.name,
-    tech: req.body.tech, // Corrected typo in req.body.tech
+    tech: req.body.tech, // Corrected type in req.body.tech
     sub: req.body.sub,
   });
   try {
