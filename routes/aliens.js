@@ -36,10 +36,10 @@ router.post("/", async (req, res) => {
 
 router.patch("/", async (req, res) => {
   try {
-    const alien = await Alien.findById(wreq.params.id);
+    const alien = await Alien.findById(req.params.id);
     alien.sub = req.body.sub;
     const a1 = await alien.save();
-    res.jason(a1);
+    res.json(a1);
   } catch (err) {
     res.send("Error");
   }
