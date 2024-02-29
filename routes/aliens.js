@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.patch("/", async (req, res) => {
+router.patch("/:id", async (req, res) => {
   try {
     const alien = await Alien.findById(req.params.id);
     alien.sub = req.body.sub;
@@ -42,6 +42,15 @@ router.patch("/", async (req, res) => {
     res.json(a1);
   } catch (err) {
     res.send("Error");
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedAlien = await Alien.findByIdAndDelete(req.params.id);
+    res.json(deletedAlien); // Respond with the deleted alien document
+  } catch (err) {
+    res.status(500).send("Error: " + err);
   }
 });
 
